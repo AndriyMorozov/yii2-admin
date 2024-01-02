@@ -65,7 +65,7 @@ $animateIcon = ' <i class="glyphicon glyphicon-refresh glyphicon-refresh-animate
             <table class="table table-striped table-bordered">
                 <tbody>
                     <tr>
-                        <th><?= Yii::t('rbac-admin', 'Assigned users'); ?></th>
+                        <th>Призначено користувачам</th>
                     </tr>
                     <tr>
                         <td id="list-users"></td>
