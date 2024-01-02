@@ -37,6 +37,7 @@ $columns[] = [
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => $columns,
+        'tableOptions' => ['class' => 'table table-striped table-bordered table-sm']
     ]);
     ?>
     <?php Pjax::end(); ?>
