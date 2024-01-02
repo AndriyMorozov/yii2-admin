@@ -43,9 +43,9 @@ unset($rules[RouteRule::RULE_NAME]);
                 'attribute' => 'description',
                 'label' => Yii::t('rbac-admin', 'Description'),
             ],
-            ['class' => 'yii\grid\ActionColumn',],
-            'tableOptions' => ['class' => 'table table-striped table-bordered table-sm']
+            ['class' => 'yii\grid\ActionColumn',]
         ],
+        'tableOptions' => ['class' => 'table table-striped table-bordered table-sm']
     ])
     ?>
 

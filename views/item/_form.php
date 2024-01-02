@@ -43,7 +43,7 @@ $this->registerJs($js);
     </div>
     <div class="form-group">
         <?php
-        echo Html::submitButton($model->isNewRecord ? Yii::t('rbac-admin', 'Create') : Yii::t('rbac-admin', 'Update'), [
+        echo Html::submitButton($model->isNewRecord ? 'Зберегти як копію ...' : 'Зберегти', [
             'class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary',
             'name' => 'submit-button'])
         ?>
