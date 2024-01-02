@@ -20,6 +20,7 @@ class AssignmentController extends Controller
     public $userClassName;
     public $idField = 'id';
     public $usernameField = 'username';
+    public $fioField = 'fio';
     public $fullnameField;
     public $searchClass;
     public $extraColumns = [];
@@ -61,7 +62,7 @@ class AssignmentController extends Controller
 
         if ($this->searchClass === null) {
             $searchModel = new AssignmentSearch;
-            $dataProvider = $searchModel->search(Yii::$app->getRequest()->getQueryParams(), $this->userClassName, $this->usernameField);
+            $dataProvider = $searchModel->search(Yii::$app->getRequest()->getQueryParams(), $this->userClassName, $this->usernameField, $this->fioField);
         } else {
             $class = $this->searchClass;
             $searchModel = new $class;
@@ -69,11 +70,12 @@ class AssignmentController extends Controller
         }
 
         return $this->render('index', [
-                'dataProvider' => $dataProvider,
-                'searchModel' => $searchModel,
-                'idField' => $this->idField,
-                'usernameField' => $this->usernameField,
-                'extraColumns' => $this->extraColumns,
+            'dataProvider' => $dataProvider,
+            'searchModel' => $searchModel,
+            'idField' => $this->idField,
+            'usernameField' => $this->usernameField,
+            'fioField' => $this->fioField,
+            'extraColumns' => $this->extraColumns,
         ]);
     }
 
@@ -87,10 +89,10 @@ class AssignmentController extends Controller
         $model = $this->findModel($id);
 
         return $this->render('view', [
-                'model' => $model,
-                'idField' => $this->idField,
-                'usernameField' => $this->usernameField,
-                'fullnameField' => $this->fullnameField,
+            'model' => $model,
+            'idField' => $this->idField,
+            'usernameField' => $this->usernameField,
+            'fullnameField' => $this->fullnameField,
         ]);
     }
 
