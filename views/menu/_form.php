@@ -38,7 +38,7 @@ $this->registerJs($this->render('_script.js'));
 
     <div class="form-group">
         <?=
-        Html::submitButton($model->isNewRecord ? 'Зберегти як копію ...' : 'Зберегти', ['class' => $model->isNewRecord
+        Html::submitButton($model->isNewRecord ? 'Зберегти' : 'Зберегти', ['class' => $model->isNewRecord
                     ? 'btn btn-success' : 'btn btn-primary'])
         ?>
     </div>
