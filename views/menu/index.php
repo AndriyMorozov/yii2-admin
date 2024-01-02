@@ -39,6 +39,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'order',
             ['class' => 'yii\grid\ActionColumn'],
         ],
+        'tableOptions' => ['class' => 'table table-striped table-bordered table-sm']
     ]);
     ?>
 <?php Pjax::end(); ?>
