@@ -8,6 +8,7 @@ use yii\widgets\Pjax;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 /* @var $searchModel mdm\admin\models\searchs\Assignment */
 /* @var $usernameField string */
+/* @var $fioField string */
 /* @var $fio string */
 /* @var $extraColumns string[] */
 
