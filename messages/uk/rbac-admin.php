@@ -17,7 +17,7 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Assignments' => 'Призначення',
+    'Assignments' => 'Призначення ролей',
     'Users' => 'Користувачі',
     'User' => 'Користувач',
     'Available' => 'Доступно',
