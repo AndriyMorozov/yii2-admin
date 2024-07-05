@@ -1,7 +1,7 @@
 <?php
 
 use yii\helpers\Html;
-use yii\grid\GridView;
+use kartik\grid\GridView;
 use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
@@ -12,17 +12,12 @@ $this->title = Yii::t('rbac-admin', 'Menus');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="menu-index">
-
-    <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]);  ?>
-
-    <p>
-        <?= Html::a('Створити пункт меню', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+  <p>
+      <?= Html::a('Створити пункт меню', ['create'], ['class' => 'btn btn-success']) ?>
+  </p>
 
     <?php Pjax::begin(); ?>
-    <?=
-    GridView::widget([
+    <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
@@ -37,11 +32,19 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             'route',
             'order',
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'template' => '{update} {delete}',
+            ],
         ],
-        'tableOptions' => ['class' => 'table table-striped table-bordered table-sm']
-    ]);
-    ?>
-<?php Pjax::end(); ?>
-
+        'pjax' => true,
+        'pjaxSettings' => ['options' => ['id' => 'kv-pjax-container']],
+        'panel' => [
+            'type' => GridView::TYPE_PRIMARY,
+            'heading' => '<span class="glyphicon glyphicon-list"></span>  ' . Html::encode($this->title),
+        ],
+        'export' => false,
+        'toggleData' => false,
+    ]); ?>
+    <?php Pjax::end(); ?>
 </div>
