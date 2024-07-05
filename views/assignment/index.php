@@ -1,7 +1,7 @@
 <?php
 
 use yii\helpers\Html;
-use yii\grid\GridView;
+use kartik\grid\GridView;
 use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
@@ -29,18 +29,20 @@ $columns[] = [
 ];
 ?>
 <div class="assignment-index">
-
-    <h1><?= Html::encode($this->title) ?></h1>
-
     <?php Pjax::begin(); ?>
-    <?=
-    GridView::widget([
+    <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => $columns,
-        'tableOptions' => ['class' => 'table table-striped table-bordered table-sm']
-    ]);
-    ?>
+        'pjax' => true,
+        'pjaxSettings' => ['options' => ['id' => 'kv-pjax-container']],
+        'panel' => [
+            'type' => GridView::TYPE_PRIMARY,
+            'heading' => '<span class="glyphicon glyphicon-user"></span>  ' . Html::encode($this->title),
+        ],
+        'export' => false,
+        'toggleData' => false,
+    ]); ?>
     <?php Pjax::end(); ?>
 
 </div>
