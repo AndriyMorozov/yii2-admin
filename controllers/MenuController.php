@@ -50,18 +50,6 @@ class MenuController extends Controller
     }
 
     /**
-     * Displays a single Menu model.
-     * @param  integer $id
-     * @return mixed
-     */
-    public function actionView($id)
-    {
-        return $this->render('view', [
-                'model' => $this->findModel($id),
-        ]);
-    }
-
-    /**
      * Creates a new Menu model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
@@ -72,7 +60,7 @@ class MenuController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             Helper::invalidate();
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['index']);
         } else {
             return $this->render('create', [
                     'model' => $model,
@@ -94,7 +82,7 @@ class MenuController extends Controller
         }
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             Helper::invalidate();
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['index']);
         } else {
             return $this->render('update', [
                     'model' => $model,
