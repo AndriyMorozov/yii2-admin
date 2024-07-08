@@ -27,27 +27,27 @@ AutocompleteAsset::register($this);
 $this->registerJs($js);
 ?>
 
-<div class="auth-item-form">
+<div class="auth-item-form form">
     <?php $form = ActiveForm::begin(['id' => 'item-form']); ?>
-    <div class="row">
-        <div class="col-sm-6">
-            <?= $form->field($model, 'name')->textInput(['maxlength' => 64]) ?>
+  <div class="form__header">
+    <h2><?= $model->isNewRecord ? 'Створення дозволу' : $model->name ?></h2>
+  </div>
+  <div class="form__body">
+    <div class="body-row">
+      <div class="row-half">
+          <?= $form->field($model, 'name')->textInput(['maxlength' => 64]) ?>
 
-            <?= $form->field($model, 'description')->textarea(['rows' => 2]) ?>
-        </div>
-        <div class="col-sm-6">
-            <?= $form->field($model, 'ruleName')->textInput(['id' => 'rule_name']) ?>
-
-            <?= $form->field($model, 'data')->textarea(['rows' => 6]) ?>
-        </div>
+          <?= $form->field($model, 'description')->textarea(['rows' => 2]) ?>
+      </div>
     </div>
     <div class="form-group">
         <?php
         echo Html::submitButton($model->isNewRecord ? 'Зберегти' : 'Зберегти', [
             'class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary',
-            'name' => 'submit-button'])
+            'name'  => 'submit-button'
+        ])
         ?>
     </div>
-
+  </div>
     <?php ActiveForm::end(); ?>
 </div>
